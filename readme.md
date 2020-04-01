@@ -11,13 +11,13 @@ so dass die Daten schlussendlich OpenStreetMap zurückgegeben werden können.
 
 Um das System zu installieren, wird Docker und docker-compose empfohlen. Folgende Schritte müssen erledigt werden:
 
-1. Kopieren der config_dist_dev.py zur config.py
+1. Kopieren der config_dist_dev.py zur config.py (`cp webapp/config_dist_dev.py webapp/config.py`)
 2. Ausfüllen der relevanten Parameter:
     1. PROJECT_URL sollte den eigenen Host bekommen
     2. ADMINS sollte die Mailadressen als Liste bekommen, an die Mails gesendet wird
     3. MAILS_FROM sollte den Mail-Absender bekommen
-    4. SECRET_KEY sollte einen Zufallsstring bekommen
-    5. SECURITY_PASSWORD_SALT sollte ebenfalls einen Zufallsstring bekommen
+    4. SECRET_KEY sollte einen Zufallsstring bekommen (z.B. mit `openssl rand -hex 32 `)
+    5. SECURITY_PASSWORD_SALT sollte ebenfalls einen Zufallsstring bekommen (z.B. mit `openssl rand -hex 32 `)
     6. MAIL_* sollte SMTP-Daten bekommen
     7. MAPBOX_TOKEN sollte einen gültigen Mapbox-Token bekommen
 3. Mit `docker-compose build` die Container bauen
